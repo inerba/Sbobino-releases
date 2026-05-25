@@ -19,7 +19,6 @@ Sbobino can also work with existing files, such as a recording made with OBS Stu
 - Converts audio into a format suitable for transcription.
 - Optimizes audio by removing silences and speeding up speech.
 - Automatically splits large audio files before upload.
-- Allows automatic or manual selection of the OpenRouter transcription model.
 - Displays the transcription inside the app and lets you copy it to the clipboard.
 - Checks for new versions from the public release repository.
 
@@ -38,15 +37,7 @@ OpenRouter supports dedicated APIs for audio transcription through speech-to-tex
 
 ## Low-cost transcriptions
 
-One of Sbobino’s goals is to make transcription accessible even for frequent or long recordings. The models supported by OpenRouter have very low costs, and the app is designed to automatically choose the most cost-effective one based on the audio duration.
-
-This means that a short voice note, a call lasting a few minutes, and a long recording are not handled in the same way: Sbobino selects the most suitable model to reduce the overall transcription cost.
-
-As a guideline, automatic selection may work like this:
-
-- short audio: **Qwen3 ASR Flash**;
-- medium-length audio: **Mistral Voxtral Mini Transcribe**;
-- long audio: **OpenAI Whisper Large v3 Turbo**.
+One of Sbobino’s goals is to make transcription accessible even for frequent or long recordings.
 
 Actual costs depend on OpenRouter’s updated pricing and on the models available at the time of use. To check updated prices, providers, and models, refer to the official page:
 
