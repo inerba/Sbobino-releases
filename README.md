@@ -1,136 +1,141 @@
 # Sbobino
 
 <p align="center">
-  <img src=".github/images/cover.png" alt="Sbobino - registra, trascrivi, copia" width="100%">
+  <img src=".github/images/cover.png" alt="Sbobino - record, transcribe, copy" width="100%">
 </p>
-Sbobino è un’app desktop per Windows pensata per registrare e trascrivere call, lezioni, webinar, video e contenuti audio senza dover usare strumenti complessi da riga di comando.
 
-Il suo punto forte è il registratore integrato: puoi registrare solo il microfono, solo l’audio del computer tramite loopback, oppure entrambi insieme. In questo modo, durante una call, puoi catturare sia la tua voce sia quella delle altre persone e ottenere una trascrizione unica, pronta da copiare.
+Sbobino is a desktop app for Windows designed to record and transcribe calls, lessons, webinars, videos, and audio content without having to use complex command-line tools.
 
-Sbobino può anche lavorare su file già esistenti, per esempio una registrazione fatta con OBS Studio, un video salvato, una lezione registrata o un file audio. L’app estrae e prepara l’audio, lo invia a OpenRouter e restituisce il testo trascritto.
+Its main strength is the built-in recorder: you can record only the microphone, only the computer audio via loopback, or both together. This way, during a call, you can capture both your voice and the voices of the other people and get a single transcription, ready to copy.
+
+Sbobino can also work with existing files, such as a recording made with OBS Studio, a saved video, a recorded lesson, or an audio file. The app extracts and prepares the audio, sends it to OpenRouter, and returns the transcribed text.
 
 ## Features
 
-- Registra call e riunioni catturando microfono e audio di sistema insieme.
-- Supporta tre modalità di registrazione: microfono, loopback, microfono + loopback.
-- Trascrive video e registrazioni già esistenti, anche create con OBS Studio.
-- Estrae automaticamente l’audio dai video.
-- Converte l’audio in formato adatto alla trascrizione.
-- Ottimizza l’audio con rimozione dei silenzi e accelerazione del parlato.
-- Divide automaticamente i file audio grandi prima dell’upload.
-- Permette la scelta automatica o manuale del modello di trascrizione OpenRouter.
-- Mostra la trascrizione nell’app e permette di copiarla negli appunti.
-- Controlla la disponibilità di nuove versioni dalla repository pubblica delle release.
+- Records calls and meetings by capturing microphone and system audio together.
+- Supports three recording modes: microphone, loopback, microphone + loopback.
+- Transcribes videos and existing recordings, including those created with OBS Studio.
+- Automatically extracts audio from videos.
+- Converts audio into a format suitable for transcription.
+- Optimizes audio by removing silences and speeding up speech.
+- Automatically splits large audio files before upload.
+- Allows automatic or manual selection of the OpenRouter transcription model.
+- Displays the transcription inside the app and lets you copy it to the clipboard.
+- Checks for new versions from the public release repository.
 
-## Prerequisiti
+## Requirements
 
-Per usare Sbobino servono:
+To use Sbobino, you need:
 
 - Windows;
-- connessione internet attiva;
-- account OpenRouter;
-- chiave API personale di OpenRouter;
-- `ffmpeg`, necessario per estrarre e convertire l’audio;
-- dispositivi audio configurati correttamente, se vuoi registrare microfono o audio di sistema.
+- an active internet connection;
+- an OpenRouter account;
+- a personal OpenRouter API key;
+- `ffmpeg`, required to extract and convert audio;
+- correctly configured audio devices, if you want to record microphone or system audio.
 
-OpenRouter supporta API dedicate per la trascrizione audio tramite endpoint speech-to-text.
+OpenRouter supports dedicated APIs for audio transcription through speech-to-text endpoints.
 
-## Trascrizioni a basso costo
+## Low-cost transcriptions
 
-Uno degli obiettivi di Sbobino è rendere la trascrizione accessibile anche per registrazioni frequenti o di lunga durata. I modelli supportati da OpenRouter hanno costi molto bassi e l’app è progettata per scegliere automaticamente quello più conveniente in base alla durata dell’audio.
+One of Sbobino’s goals is to make transcription accessible even for frequent or long recordings. The models supported by OpenRouter have very low costs, and the app is designed to automatically choose the most cost-effective one based on the audio duration.
 
-Questo significa che una breve nota vocale, una call di pochi minuti e una registrazione lunga non vengono trattate allo stesso modo: Sbobino seleziona il modello più adatto per ridurre il costo complessivo della trascrizione.
+This means that a short voice note, a call lasting a few minutes, and a long recording are not handled in the same way: Sbobino selects the most suitable model to reduce the overall transcription cost.
 
-Indicativamente, la selezione automatica può funzionare così:
+As a guideline, automatic selection may work like this:
 
-- audio brevi: **Qwen3 ASR Flash**;
-- audio medi: **Mistral Voxtral Mini Transcribe**;
-- audio lunghi: **OpenAI Whisper Large v3 Turbo**.
+- short audio: **Qwen3 ASR Flash**;
+- medium-length audio: **Mistral Voxtral Mini Transcribe**;
+- long audio: **OpenAI Whisper Large v3 Turbo**.
 
-I costi effettivi dipendono dal listino aggiornato di OpenRouter e dai modelli disponibili al momento dell’utilizzo. Per consultare prezzi, provider e modelli aggiornati, fai riferimento alla pagina ufficiale:
+Actual costs depend on OpenRouter’s updated pricing and on the models available at the time of use. To check updated prices, providers, and models, refer to the official page:
 
-[Modelli di trascrizione disponibili su OpenRouter](https://openrouter.ai/models?output_modalities=transcription)
+[Available transcription models on OpenRouter](https://openrouter.ai/models?output_modalities=transcription)
 
-## Installazione
+## Installation
 
-### 1. Scarica Sbobino
+### 1. Download Sbobino
 
-1. Vai nella pagina delle release del progetto.
-2. Scarica l’ultima versione disponibile.
-3. Estrai il file `.zip` in una cartella a tua scelta.
-4. Avvia `Sbobino.exe`.
+1. Go to the project’s releases page.
+2. Download the latest available version.
+3. Extract the `.zip` file into a folder of your choice.
+4. Run `Sbobino.exe`.
 
-Sbobino è portable: non richiede installazione tradizionale.
+Sbobino is portable: it does not require a traditional installation.
 
-### 2. Installa ffmpeg
+### 2. Install ffmpeg
 
-Sbobino usa `ffmpeg` per estrarre l’audio dai video e prepararlo alla trascrizione.
+Sbobino uses `ffmpeg` to extract audio from videos and prepare it for transcription.
 
-Puoi configurarlo in uno di questi due modi:
+You can configure it in one of these two ways:
 
-#### Opzione A: ffmpeg nella cartella di Sbobino
+#### Option A: ffmpeg in the Sbobino folder
 
-1. Scarica una build Windows di `ffmpeg`.
-2. Estrai l’archivio scaricato.
-3. Trova il file `ffmpeg.exe`.
-4. Copia `ffmpeg.exe` nella stessa cartella di `Sbobino.exe`.
+1. Download a Windows build of `ffmpeg`.
+2. Extract the downloaded archive.
+3. Find the `ffmpeg.exe` file.
+4. Copy `ffmpeg.exe` into the same folder as `Sbobino.exe`.
 
-Questa è l’opzione più semplice se vuoi tenere tutto nella stessa cartella.
+This is the simplest option if you want to keep everything in the same folder.
 
-#### Opzione B: ffmpeg nel PATH di Windows
+#### Option B: ffmpeg in the Windows PATH
 
-1. Scarica ed estrai `ffmpeg`.
-2. Copia il percorso della cartella che contiene `ffmpeg.exe`.
-3. Aggiungi quel percorso alle variabili d’ambiente di Windows, nella voce `Path`.
-4. Riavvia Sbobino.
+1. Download and extract `ffmpeg`.
+2. Copy the path of the folder containing `ffmpeg.exe`.
+3. Add that path to the Windows environment variables under `Path`.
+4. Restart Sbobino.
 
-Per verificare che `ffmpeg` sia disponibile, puoi aprire il Prompt dei comandi e scrivere:
+To check that `ffmpeg` is available, you can open Command Prompt and type:
 
 ```bash
 ffmpeg -version
 ```
 
-Se compare la versione installata, `ffmpeg` è configurato correttamente.
+If the installed version appears, `ffmpeg` is configured correctly.
 
-## Uso
+## Usage
 
-### Registrare una call
+### Recording a call
 
-1. Apri Sbobino.
-2. Scegli la modalità di registrazione:
-   - microfono;
-   - audio di sistema;
-   - microfono + audio di sistema.
+1. Open Sbobino.
 
-3. Avvia la registrazione prima o durante la call.
-4. Ferma la registrazione quando hai finito.
-5. Avvia la trascrizione.
-6. Copia il testo ottenuto.
+2. Choose the recording mode:
+   - microphone;
+   - system audio;
+   - microphone + system audio.
 
-Questa modalità è utile per riunioni online, lezioni in streaming, webinar e conversazioni in cui vuoi registrare sia la tua voce sia quella degli altri partecipanti.
+3. Start recording before or during the call.
 
-### Trascrivere un video già registrato
+4. Stop recording when you are done.
 
-Puoi usare Sbobino anche con file creati da OBS Studio o da altri programmi di registrazione.
+5. Start the transcription.
+
+6. Copy the resulting text.
+
+This mode is useful for online meetings, streaming lessons, webinars, and conversations where you want to record both your voice and the voices of the other participants.
+
+### Transcribing an already recorded video
+
+You can also use Sbobino with files created by OBS Studio or other recording programs.
 
 ```text
-1. Registra un video con OBS Studio
-2. Apri Sbobino
-3. Seleziona il file video
-4. Sbobino estrae automaticamente l’audio
-5. L’audio viene preparato per la trascrizione
-6. La trascrizione viene mostrata nell’app
+1. Record a video with OBS Studio
+2. Open Sbobino
+3. Select the video file
+4. Sbobino automatically extracts the audio
+5. The audio is prepared for transcription
+6. The transcription is shown inside the app
 ```
 
 ## Disclaimer
 
-Sbobino è uno strumento tecnico per registrare, convertire e trascrivere contenuti audio o video. L’utente è l’unico responsabile dell’uso che ne fa.
+Sbobino is a technical tool for recording, converting, and transcribing audio or video content. The user is solely responsible for how they use it.
 
-Prima di registrare, trascrivere o caricare contenuti su servizi esterni, assicurati di avere il diritto di farlo. In particolare, devi verificare che:
+Before recording, transcribing, or uploading content to external services, make sure you have the right to do so. In particular, you must verify that:
 
-- le persone coinvolte siano state informate e, quando necessario, abbiano autorizzato la registrazione;
-- il contenuto non violi diritti di terzi, inclusi diritti d’autore, diritti connessi, riservatezza, segreti professionali o obblighi contrattuali;
-- l’uso della registrazione e della trascrizione sia conforme alle leggi applicabili in materia di privacy, protezione dei dati personali e copyright;
-- eventuali piattaforme, servizi o contenuti registrati consentano questo tipo di utilizzo.
+- the people involved have been informed and, where necessary, have authorized the recording;
+- the content does not violate third-party rights, including copyright, related rights, confidentiality, professional secrecy, or contractual obligations;
+- the use of the recording and transcription complies with applicable laws on privacy, personal data protection, and copyright;
+- any platforms, services, or recorded content allow this type of use.
 
-L’autore del progetto non è responsabile per usi impropri, non autorizzati o illeciti dell’applicazione. Sbobino non aggira protezioni tecniche, non concede diritti sui contenuti trattati e non sostituisce una valutazione legale sull’uso delle registrazioni.
+The project author is not responsible for improper, unauthorized, or unlawful use of the application. Sbobino does not bypass technical protections, does not grant rights over the processed content, and does not replace a legal assessment of the use of recordings.
