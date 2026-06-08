@@ -4,129 +4,262 @@
   <img src=".github/images/cover.png" alt="Sbobino - record, transcribe, copy" width="100%">
 </p>
 
-Sbobino is a desktop app for Windows designed to record and transcribe calls, lessons, webinars, videos, and audio content without having to use complex command-line tools.
+Turn videos, recordings, online audio, meetings, lessons, interviews, webinars, and voice notes into clean text with a simple Windows app.
 
-Its main strength is the built-in recorder: you can record only the microphone, only the computer audio via loopback, or both together. This way, during a call, you can capture both your voice and the voices of the other people and get a single transcription, ready to copy.
+Sbobino is made for people who need a transcript without fighting with complicated tools. Pick a file, record your audio, or paste a YouTube link. Sbobino prepares the sound, sends it to the transcription service you choose, and gives you readable text you can copy, save, search, edit, share, or turn into notes.
 
-Sbobino can also work with existing files, such as a recording made with OBS Studio, a saved video, a recorded lesson, or an audio file. The app extracts and prepares the audio, sends it to OpenRouter, and returns the transcribed text.
+## Download
 
-## Features
+Get the latest Windows installer from GitHub:
 
-- Records calls and meetings by capturing microphone and system audio together.
-- Supports three recording modes: microphone, loopback, microphone + loopback.
-- Transcribes videos and existing recordings, including those created with OBS Studio.
-- Automatically extracts audio from videos.
-- Converts audio into a format suitable for transcription.
-- Optimizes audio by removing silences and speeding up speech.
-- Automatically splits large audio files before upload.
-- Displays the transcription inside the app and lets you copy it to the clipboard.
-- Checks for new versions from the public release repository.
+[Download the latest Sbobino release](https://github.com/inerba/Sbobino-releases/releases/latest)
 
-## Requirements
+Open the release page, download the `Sbobino-...-Setup.exe` file, run it, and start Sbobino from the Start menu.
 
-To use Sbobino, you need:
+## What Sbobino Is For
 
-- Windows;
-- an active internet connection;
-- an OpenRouter account;
-- a personal OpenRouter API key;
-- `ffmpeg`, required to extract and convert audio;
-- correctly configured audio devices, if you want to record microphone or system audio.
+Sbobino helps when you have spoken content and you want the words.
 
-OpenRouter supports dedicated APIs for audio transcription through speech-to-text endpoints.
+Use it for:
 
-## Low-cost transcriptions
+- meetings and calls;
+- university lessons and online courses;
+- webinars and tutorials;
+- interviews and research recordings;
+- podcasts and voice notes;
+- screen recordings;
+- YouTube videos;
+- audio playing from your computer;
+- microphone recordings;
+- video files where you only need the audio or transcript.
 
-One of Sbobino’s goals is to make transcription accessible even for frequent or long recordings.
+Instead of opening different apps for downloading, converting, recording, and transcribing, Sbobino brings the whole flow into one small desktop window.
 
-Actual costs depend on OpenRouter’s updated pricing and on the models available at the time of use. To check updated prices, providers, and models, refer to the official page:
+## The Main Idea
 
-[Available transcription models on OpenRouter](https://openrouter.ai/models?output_modalities=transcription)
+Sbobino works in three simple steps:
 
-## Installation
+1. Choose where the audio comes from.
+2. Let Sbobino prepare it.
+3. Get the transcript.
 
-### 1. Download Sbobino
+The source can be a local video, a local audio file, a YouTube link, your microphone, your computer audio, or both microphone and computer audio together.
 
-1. Go to the project’s releases page.
-2. Download the latest available version.
-3. Extract the `.zip` file into a folder of your choice.
-4. Run `Sbobino.exe`.
+When the source is a video, Sbobino extracts the audio first. When the source is already an audio file, it can transcribe it directly. When the audio is long or heavy, Sbobino handles it in smaller parts so the job is easier to complete.
 
-Sbobino is portable: it does not require a traditional installation.
+## What You See When You Open It
 
-### 2. Install ffmpeg
+The app is intentionally direct.
 
-Sbobino uses `ffmpeg` to extract audio from videos and prepare it for transcription.
+At the top, you choose the source:
 
-You can configure it in one of these two ways:
+- **Record** starts a live recording.
+- **Browse** lets you choose a video or audio file from your computer.
+- **YouTube** lets you paste a video link and prepare its audio.
 
-#### Option A: ffmpeg in the Sbobino folder
+After a source is ready, Sbobino shows the actions that make sense for that source. If you choose a video, you can extract audio. If transcription is configured, you can transcribe. If recording is active, you see the timer, pause button, stop button, and sound levels.
 
-1. Download a Windows build of `ffmpeg`.
-2. Extract the downloaded archive.
-3. Find the `ffmpeg.exe` file.
-4. Copy `ffmpeg.exe` into the same folder as `Sbobino.exe`.
+The status bar at the bottom tells you what is happening: downloading, converting, recording, uploading, transcribing, saving, or waiting.
 
-This is the simplest option if you want to keep everything in the same folder.
+## Local Files
 
-#### Option B: ffmpeg in the Windows PATH
+Sbobino accepts both video and audio files.
 
-1. Download and extract `ffmpeg`.
-2. Copy the path of the folder containing `ffmpeg.exe`.
-3. Add that path to the Windows environment variables under `Path`.
-4. Restart Sbobino.
+For videos, it can:
 
-To check that `ffmpeg` is available, you can open Command Prompt and type:
+- extract the audio only;
+- convert the audio into a compact format that is good for transcription;
+- automatically start transcription after conversion.
 
-```bash
-ffmpeg -version
-```
+For audio files, it can:
 
-If the installed version appears, `ffmpeg` is configured correctly.
+- transcribe directly;
+- optionally optimize the audio before transcription;
+- save the resulting transcript next to the audio file.
 
-## Usage
+Supported video files include:
 
-### Recording a call
+`MP4`, `MKV`, `AVI`, `MOV`, `WMV`, `FLV`, `M4V`, `TS`, and `MTS`.
 
-1. Open Sbobino.
+Supported audio files include:
 
-2. Choose the recording mode:
-   - microphone;
-   - system audio;
-   - microphone + system audio.
+`MP3`, `WAV`, `M4A`, `FLAC`, `OGG`, `OPUS`, `WEBM`, `MPGA`, `MPEG`, and `AIFF`.
 
-3. Start recording before or during the call.
+## YouTube Audio
 
-4. Stop recording when you are done.
+The YouTube button is for people who want a transcript from a video without manually downloading audio first.
 
-5. Start the transcription.
+Paste a YouTube link, and Sbobino downloads the audio, converts it into its compact audio format, and makes it ready for transcription.
 
-6. Copy the resulting text.
+This is useful for:
 
-This mode is useful for online meetings, streaming lessons, webinars, and conversations where you want to record both your voice and the voices of the other participants.
+- lectures;
+- public talks;
+- tutorials;
+- interviews;
+- long videos you want to summarize or quote.
 
-### Transcribing an already recorded video
+After the YouTube audio is ready, it behaves like any other audio source in the app.
 
-You can also use Sbobino with files created by OBS Studio or other recording programs.
+## Recording
 
-```text
-1. Record a video with OBS Studio
-2. Open Sbobino
-3. Select the video file
-4. Sbobino automatically extracts the audio
-5. The audio is prepared for transcription
-6. The transcription is shown inside the app
-```
+Sbobino can record audio directly from your computer.
 
-## Disclaimer
+You can record:
 
-Sbobino is a technical tool for recording, converting, and transcribing audio or video content. The user is solely responsible for how they use it.
+- **Microphone** - your voice or anything captured by your input device.
+- **Loopback** - the sound playing through your computer, such as a meeting, browser video, music player, or webinar.
+- **Both** - microphone and computer audio together, mixed into one file.
 
-Before recording, transcribing, or uploading content to external services, make sure you have the right to do so. In particular, you must verify that:
+While recording, Sbobino shows:
 
-- the people involved have been informed and, where necessary, have authorized the recording;
-- the content does not violate third-party rights, including copyright, related rights, confidentiality, professional secrecy, or contractual obligations;
-- the use of the recording and transcription complies with applicable laws on privacy, personal data protection, and copyright;
-- any platforms, services, or recorded content allow this type of use.
+- a recording timer;
+- pause and resume;
+- stop;
+- live sound level meters for microphone and computer audio.
 
-The project author is not responsible for improper, unauthorized, or unlawful use of the application. Sbobino does not bypass technical protections, does not grant rights over the processed content, and does not replace a legal assessment of the use of recordings.
+When you stop, Sbobino prepares the recording as an audio file and makes it immediately ready for transcription.
+
+This is especially useful for online meetings where you want your own voice and the other speakers in one transcript.
+
+## Audio Extraction
+
+If you only want the audio from a video, use **Extract audio only**.
+
+Sbobino creates an audio file in the folder you chose in Settings. If a file with the same name already exists, Sbobino creates a new name instead of overwriting it.
+
+This is useful when you want to keep the audio, send it elsewhere, archive it, or transcribe it later.
+
+## Transcription
+
+The **Transcribe** button sends your prepared audio to the transcription provider you choose in Settings.
+
+Sbobino currently supports:
+
+- **OpenRouter**
+- **Blip AI**
+
+With OpenRouter, you can choose the transcription model from the app. Sbobino can also show model pricing when that information is available, and after a transcription it may show the cost reported by the provider.
+
+With Blip AI, Sbobino uses your Blip AI token. If the token expires, the app asks for a fresh one and can continue the transcription flow after you paste it.
+
+The transcript appears inside the app as soon as it is available. For long files, partial text appears progressively while the work continues.
+
+When transcription finishes, Sbobino automatically saves a text file next to the audio source and also lets you copy the transcript to the clipboard with one click.
+
+## Optimize And Transcribe
+
+Some recordings are long because they contain pauses, silence, slow speech, or empty sections. **Optimize & transcribe** prepares the audio before sending it for transcription.
+
+It can:
+
+- remove silent parts;
+- speed up spoken audio;
+- make long recordings lighter and faster to process.
+
+This can help with long meetings, classes, calls, and recordings where only the spoken content matters.
+
+In Settings, you can choose:
+
+- how much the audio should be sped up;
+- how quiet a part must be before Sbobino treats it as silence;
+- how long the silence must last before it is removed.
+
+This option is available for OpenRouter transcription.
+
+## Long Files
+
+Large audio files can be difficult for transcription services. Sbobino handles this automatically.
+
+When a file is too large, the app splits it into smaller parts, transcribes them in order, and joins the text back together. You do not have to do anything manually.
+
+Very tiny empty parts are skipped, because they usually contain no speech and can cause useless errors.
+
+## Transcript Output
+
+Sbobino gives you the transcript in two ways:
+
+- visible inside the app;
+- saved as a `.txt` file.
+
+The **Copy text** button copies the transcript to your clipboard, ready to paste into Word, Notion, Google Docs, email, chat, a summary tool, or your note system.
+
+The saved text file is created automatically after a successful transcription. If a transcript file already exists, Sbobino creates a numbered filename instead of replacing your previous work.
+
+## Settings
+
+The Settings screen is split into clear areas.
+
+### AI
+
+Here you choose the transcription provider and enter the API key or token.
+
+For OpenRouter, Sbobino links you to the key page and lets you choose the transcription model.
+
+For Blip AI, Sbobino links you to the dashboard and reminds you that tokens can expire.
+
+Your key is saved locally on your computer. Sbobino does not run its own transcription server and does not collect your files.
+
+### Audio
+
+Here you choose how Sbobino prepares audio.
+
+You can set:
+
+- audio quality;
+- mono or stereo;
+- sample rate;
+- the default folder for saved audio;
+- the location of FFmpeg if Sbobino cannot find it automatically;
+- recording source;
+- microphone device;
+- computer audio device;
+- optimization settings.
+
+The app recommends compact audio settings because transcription usually does not need studio-quality sound. Smaller files upload faster and may cost less, depending on the provider.
+
+### Application
+
+Here you can choose:
+
+- interface language;
+- visual theme.
+
+The interface supports Italian, English, French, Spanish, German, and Polish.
+
+Themes are applied immediately so you can preview them before saving.
+
+## What You Need
+
+Sbobino is a Windows desktop app.
+
+For transcription, you need:
+
+- an internet connection;
+- an API key or token for the provider you want to use.
+
+For audio conversion and recording finalization, Sbobino needs FFmpeg. If it is not found, the app tells you what to do. You can place `ffmpeg.exe` next to Sbobino, install it normally on Windows, or select its exact location in Settings.
+
+For recording computer audio, your Windows audio devices must support loopback recording. Most normal Windows systems do, but the exact available devices depend on your machine.
+
+## Updates
+
+Sbobino checks GitHub for new public releases when it starts. If a newer version is available, it shows a download link.
+
+You can always get the latest installer here:
+
+[https://github.com/inerba/Sbobino-releases/releases/latest](https://github.com/inerba/Sbobino-releases/releases/latest)
+
+## Why People Use It
+
+Sbobino is useful because it keeps the boring parts out of the way.
+
+You do not need to manually extract audio from a video. You do not need to prepare a recording in another program. You do not need to split a long file by hand. You do not need to hunt for the saved transcript. You choose the source, press the right button, and get text.
+
+It is built for people who have real spoken material to process and want a fast path from sound to words.
+
+## Start Here
+
+Download the latest release, install Sbobino, add your transcription provider key in Settings, and try it with a short audio or video file.
+
+[Download Sbobino from GitHub Releases](https://github.com/inerba/Sbobino-releases/releases/latest)
